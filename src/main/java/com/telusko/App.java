@@ -43,10 +43,15 @@ public class App
 {
     public static void main(String[] args)
     {
-        Alien telusko = null;
-//        telusko.setAid(108);
-//        telusko.setAname("Navin");
-//        telusko.setColor("Green");
+        AlienName an=new AlienName();
+        an.setFname("Gaurav");
+        an.setMname("Great");
+        an.setLname("Sharma");
+
+        Alien telusko = new Alien();
+        telusko.setAid(110);
+        telusko.setAname(an);
+        telusko.setColor("Green");
 
         // Create registry
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
@@ -70,11 +75,9 @@ public class App
         Transaction tx = session.beginTransaction();
 
 
-//fetching an object of Alien class
-        telusko=session.get(Alien.class,106);
 
         // saving an object of Alien class
-       // session.persist(telusko);
+        session.persist(telusko);
         tx.commit();
 
         System.out.println(telusko);
